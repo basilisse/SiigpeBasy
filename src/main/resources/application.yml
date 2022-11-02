@@ -1,0 +1,31 @@
+## YAML Template.
+---
+server:
+  port: 8080
+  #servlet:
+    #context-path: /siigpe
+---
+spring:
+    config:
+      activate:
+        on-profile: local,default
+    session:
+        store-type: jdbc
+        jdbc:
+            table-name: public.spring_session
+        cookie:
+            max-age: 3600
+    datasource:
+        url: jdbc:postgresql://localhost:5432/siigpe
+        username: sigpe
+        password: SIIGPE2022       
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                "[default_schema]": public
+                "[format_sql]": true
+                "[show_sql]": true
+                jdbc:
+                    lob:
+                        "[non_contextual_creation]": true
